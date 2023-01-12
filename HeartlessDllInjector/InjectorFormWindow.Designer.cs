@@ -39,7 +39,7 @@
             // 
             // injectDllsButton
             // 
-            this.injectDllsButton.Location = new System.Drawing.Point(415, 243);
+            this.injectDllsButton.Location = new System.Drawing.Point(532, 334);
             this.injectDllsButton.Name = "injectDllsButton";
             this.injectDllsButton.Size = new System.Drawing.Size(75, 33);
             this.injectDllsButton.TabIndex = 0;
@@ -49,7 +49,7 @@
             // 
             // addDllButton
             // 
-            this.addDllButton.Location = new System.Drawing.Point(346, 243);
+            this.addDllButton.Location = new System.Drawing.Point(463, 334);
             this.addDllButton.Name = "addDllButton";
             this.addDllButton.Size = new System.Drawing.Size(63, 33);
             this.addDllButton.TabIndex = 1;
@@ -62,20 +62,20 @@
             this.procListBox.FormattingEnabled = true;
             this.procListBox.Location = new System.Drawing.Point(12, 12);
             this.procListBox.Name = "procListBox";
-            this.procListBox.Size = new System.Drawing.Size(123, 264);
+            this.procListBox.Size = new System.Drawing.Size(241, 355);
             this.procListBox.TabIndex = 2;
             // 
             // dllsListBox
             // 
             this.dllsListBox.FormattingEnabled = true;
-            this.dllsListBox.Location = new System.Drawing.Point(142, 12);
+            this.dllsListBox.Location = new System.Drawing.Point(259, 12);
             this.dllsListBox.Name = "dllsListBox";
-            this.dllsListBox.Size = new System.Drawing.Size(348, 225);
+            this.dllsListBox.Size = new System.Drawing.Size(348, 316);
             this.dllsListBox.TabIndex = 3;
             // 
             // refreshProcListButton
             // 
-            this.refreshProcListButton.Location = new System.Drawing.Point(142, 243);
+            this.refreshProcListButton.Location = new System.Drawing.Point(259, 334);
             this.refreshProcListButton.Name = "refreshProcListButton";
             this.refreshProcListButton.Size = new System.Drawing.Size(111, 33);
             this.refreshProcListButton.TabIndex = 4;
@@ -85,7 +85,7 @@
             // 
             // removeDllButton
             // 
-            this.removeDllButton.Location = new System.Drawing.Point(259, 243);
+            this.removeDllButton.Location = new System.Drawing.Point(376, 334);
             this.removeDllButton.Name = "removeDllButton";
             this.removeDllButton.Size = new System.Drawing.Size(81, 33);
             this.removeDllButton.TabIndex = 5;
@@ -97,7 +97,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(502, 289);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(619, 376);
             this.Controls.Add(this.removeDllButton);
             this.Controls.Add(this.refreshProcListButton);
             this.Controls.Add(this.dllsListBox);
