@@ -35,6 +35,8 @@
             this.dllsListBox = new System.Windows.Forms.ListBox();
             this.refreshProcListButton = new System.Windows.Forms.Button();
             this.removeDllButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // injectDllsButton
@@ -60,17 +62,17 @@
             // procListBox
             // 
             this.procListBox.FormattingEnabled = true;
-            this.procListBox.Location = new System.Drawing.Point(12, 12);
+            this.procListBox.Location = new System.Drawing.Point(12, 25);
             this.procListBox.Name = "procListBox";
-            this.procListBox.Size = new System.Drawing.Size(241, 355);
+            this.procListBox.Size = new System.Drawing.Size(241, 342);
             this.procListBox.TabIndex = 2;
             // 
             // dllsListBox
             // 
             this.dllsListBox.FormattingEnabled = true;
-            this.dllsListBox.Location = new System.Drawing.Point(259, 12);
+            this.dllsListBox.Location = new System.Drawing.Point(259, 25);
             this.dllsListBox.Name = "dllsListBox";
-            this.dllsListBox.Size = new System.Drawing.Size(348, 316);
+            this.dllsListBox.Size = new System.Drawing.Size(348, 303);
             this.dllsListBox.TabIndex = 3;
             // 
             // refreshProcListButton
@@ -93,12 +95,32 @@
             this.removeDllButton.UseVisualStyleBackColor = true;
             this.removeDllButton.Click += new System.EventHandler(this.removeDllButton_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Processes";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(259, 6);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(32, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "DLLs";
+            // 
             // InjectorFormWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(619, 376);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.removeDllButton);
             this.Controls.Add(this.refreshProcListButton);
             this.Controls.Add(this.dllsListBox);
@@ -109,6 +131,7 @@
             this.Name = "InjectorFormWindow";
             this.Text = "HeartlessAngel\'s DLL Injector";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -120,6 +143,8 @@
         private System.Windows.Forms.ListBox dllsListBox;
         private System.Windows.Forms.Button refreshProcListButton;
         private System.Windows.Forms.Button removeDllButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
