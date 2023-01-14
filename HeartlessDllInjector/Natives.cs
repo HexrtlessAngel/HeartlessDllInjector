@@ -55,5 +55,11 @@ namespace HeartlessDllInjector
             uint dwCreationFlags, 
             IntPtr lpThreadId
             );
+
+        [DllImport("kernel32.dll")]
+        public static extern bool IsWow64Process(
+            IntPtr hProc, 
+            out bool wow64Process
+            );
     }
 }

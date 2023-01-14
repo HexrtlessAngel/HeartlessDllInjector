@@ -6,6 +6,8 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +17,8 @@ namespace HeartlessDllInjector
     public partial class InjectorFormWindow : Form
     {
         private int refreshButtonClicks, attempts, annoyedLevel;
+
+        public bool transparentWindow;
         public List<string> dlls;
         public Injector injector;
 
@@ -26,9 +30,27 @@ namespace HeartlessDllInjector
 
             dlls = new List<string>();
             injector = new Injector();
-            FormBorderStyle = FormBorderStyle.FixedSingle;
 
             RefreshProcList();
+
+            if (Environment.Is64BitProcess)
+                Text += " (64 BIT)";
+            else
+                Text += " (32 BIT)";
+
+            if (CheckIfRunningAsAdmin())
+            {
+                MessageBox.Show("Running as admin, DLL Injection as an admin can get real dangerous real fast, know what you are injecting, be safe and have fun. ;)", Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Text += " (ADMIN)";
+            }
+        }
+
+        private bool CheckIfRunningAsAdmin()
+        {
+            WindowsIdentity identity = WindowsIdentity.GetCurrent();
+            WindowsPrincipal windowsPrincipal= new WindowsPrincipal(identity);
+
+            return windowsPrincipal.IsInRole(WindowsBuiltInRole.Administrator);
         }
 
         private void RefreshProcList()
@@ -37,71 +59,122 @@ namespace HeartlessDllInjector
 
             foreach (Process proc in Process.GetProcesses())
             {
-                // Blacklisting certian processes for clean and safty reasons. (this looks jank ik lol)                
-                switch (proc.ProcessName)
-                {
-                    default:
-                        procListBox.Items.Add(proc.ProcessName);
-                        break;
+                // Lol
+                if (Process.GetCurrentProcess().Id == proc.Id)
+                    continue;
 
-                    case "svchost":
-                        continue;
+                // Blacklisting certian processes for clean and safty reasons. (this looks jank ik lol)
+                if (IsBlacklistedProess(proc.ProcessName))
+                    continue;
 
-                    case "winlogon":
-                        continue;
+                // If the process is not in the same bit as we are in
+                if (IsProcess64Bit(proc) != Environment.Is64BitProcess)
+                    continue;
 
-                    case "RuntimeBroker":
-                        continue;
-
-                    case "chrome":
-                        continue;
-
-                    case "explorer":
-                        continue;
-
-                    case "OneDrive":
-                        continue;
-
-                    case "msedgewebview2":
-                        continue;
-
-                    case "conhost":
-                        continue;
-
-                    case "dllhost":
-                        continue;
-
-                    case "Discord":
-                        continue;
-
-                    case "Code":
-                        continue;
-
-                    case "Spotify":
-                        continue;
-
-                    case "csrss":
-                        continue;
-
-                    case "cmd":
-                        continue;
-
-                    case "SystemSettings":
-                        continue;
-
-                    case "qemu-ga":
-                        continue;
-
-                    case "Taskmgr":
-                        continue;
-
-                    case "wininit":
-                        continue;
-
-                    case "Guilded":
-                        continue;
-                }
+                procListBox.Items.Add(proc.ProcessName);
             }
+        }
+
+        private bool IsProcess64Bit(Process proc)
+        {
+            try
+            {
+                if (!Environment.Is64BitOperatingSystem)
+                    return false;
+
+                bool isWow64;
+
+                if (!Natives.IsWow64Process(proc.Handle, out isWow64))
+                    return false;
+
+                return !isWow64;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private bool IsBlacklistedProess(string name)
+        {
+            switch (name)
+            {
+                case "svchost":
+                    return true;
+
+                case "winlogon":
+
+                    return true;
+
+                case "RuntimeBroker":                    
+                    return true;
+
+                case "chrome":
+                    
+                    return true;
+
+                case "explorer":
+                    
+                    return true;
+
+                case "OneDrive":
+                    
+                    return true;
+
+                case "msedgewebview2":
+                    
+                    return true;
+
+                case "conhost":
+                    
+                    return true;
+
+                case "dllhost":
+                    
+                    return true;
+
+                case "Discord":
+                    
+                    return true;
+
+                case "Code":
+                    
+                    return true;
+
+                case "Spotify":
+                    
+                    return true;
+
+                case "csrss":
+                    
+                    return true;
+
+                case "cmd":
+                    
+                    return true;
+
+                case "SystemSettings":
+                    
+                    return true;
+
+                case "qemu-ga":
+                    
+                    return true;
+
+                case "Taskmgr":
+                    
+                    return true;
+
+                case "wininit":
+                    
+                    return true;
+
+                case "Guilded":
+                    
+                    return true;
+            }
+
+            return false;
         }
 
         private void ExpressAnnoyance()
@@ -174,11 +247,11 @@ namespace HeartlessDllInjector
             RefreshProcList();
         }
 
-        private void addDllButton_Click(object sender, EventArgs e)
+        private void AddDllFromOpenmFileDialog()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
-            switch(openFileDialog.ShowDialog(this))
+            switch (openFileDialog.ShowDialog(this))
             {
                 case DialogResult.OK:
                     AddDllToList(openFileDialog.FileName);
@@ -190,6 +263,8 @@ namespace HeartlessDllInjector
             }
         }
 
+        private void addDllButton_Click(object sender, EventArgs e) => AddDllFromOpenmFileDialog();
+
         private void AddDllToList(string dllItem)
         {
             dllsListBox.Items.Add(dllItem);
@@ -198,9 +273,29 @@ namespace HeartlessDllInjector
 
         private void removeDllButton_Click(object sender, EventArgs e)
         {
+            if (dllsListBox.Items.Count == 0)
+                return;
+
             dllsListBox.Items.RemoveAt(dllsListBox.SelectedIndex);
             dlls.RemoveAt(dllsListBox.SelectedIndex + 1);
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e) => Application.Exit();
+        private void addDLLToolStripMenuItem_Click(object sender, EventArgs e) => AddDllFromOpenmFileDialog();
+
+        private void refreshProcessListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            refreshButtonClicks++;
+
+            if (refreshButtonClicks == 15)
+            {
+                ExpressAnnoyance();
+                refreshButtonClicks = 0;
+            }
+
+            RefreshProcList();
+        }
+
 
         private bool CheckIfReady()
         {
