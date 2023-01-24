@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Who asked you say? Well no one... but HA! You cared enough to tell me that so :P
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;

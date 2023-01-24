@@ -1,4 +1,5 @@
-﻿namespace HeartlessDllInjector
+﻿// Ha! you though I woun't put a comment in here, you're wrong I do it EVERYWHERE! HAHAHAHA!!!!!
+namespace HeartlessDllInjector
 {
     partial class InjectorFormWindow
     {

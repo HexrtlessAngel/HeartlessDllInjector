@@ -1,4 +1,5 @@
-﻿namespace HeartlessDllInjector
+﻿// Based??? Based on what?!?!?!
+namespace HeartlessDllInjector
 {
     public enum ProcessPrivleges : int
     {

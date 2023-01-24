@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Hello world? What if the world is leaving??? Ever thought of that?!?!?!
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

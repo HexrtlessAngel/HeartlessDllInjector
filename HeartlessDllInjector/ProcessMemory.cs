@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Did you ever think that furries might be commiting the animal equivalent to black face?
+using System;
 using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
