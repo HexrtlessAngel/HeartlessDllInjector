@@ -1,4 +1,4 @@
-﻿// Meet the natives... of C++
+﻿// Meet the natives... of windows
 using System;
 using System.Collections.Generic;
 using System.Linq;
