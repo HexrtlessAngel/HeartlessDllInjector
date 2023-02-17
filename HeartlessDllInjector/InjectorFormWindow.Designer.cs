@@ -1,4 +1,8 @@
-﻿// Ha! you though I woun't put a comment in here, you're wrong I do it EVERYWHERE! HAHAHAHA!!!!!
+﻿// Ha! you though I wouldn't put a comment in here, you're wrong I do it EVERYWHERE! HAHAHAHA!!!!!
+// I
+// A M
+// E V E R Y W H E R E
+// B I T C H
 namespace HeartlessDllInjector
 {
     partial class InjectorFormWindow
