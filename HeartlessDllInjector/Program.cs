@@ -11,7 +11,7 @@ namespace HeartlessDllInjector
     {
         // Shut up MSVCE We know what "Main()" means lul
         /// <summary>
-        /// The main entry point for the application.
+        /// The main entry point for the application. (No shit... Really?)
         /// </summary>
         [STAThread]
         static void Main()

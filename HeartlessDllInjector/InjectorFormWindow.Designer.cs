@@ -38,12 +38,12 @@ namespace HeartlessDllInjector
             this.removeDllButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addDLLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshProcessListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,6 +51,7 @@ namespace HeartlessDllInjector
             // 
             this.injectDllsButton.BackColor = System.Drawing.SystemColors.Control;
             this.injectDllsButton.FlatAppearance.BorderColor = System.Drawing.Color.Fuchsia;
+            this.injectDllsButton.FlatAppearance.BorderSize = 0;
             this.injectDllsButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.injectDllsButton.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.injectDllsButton.ForeColor = System.Drawing.Color.Black;
@@ -67,6 +68,7 @@ namespace HeartlessDllInjector
             // 
             this.addDllButton.BackColor = System.Drawing.SystemColors.Control;
             this.addDllButton.FlatAppearance.BorderColor = System.Drawing.Color.Fuchsia;
+            this.addDllButton.FlatAppearance.BorderSize = 0;
             this.addDllButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.addDllButton.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.addDllButton.ForeColor = System.Drawing.Color.Black;
@@ -99,20 +101,21 @@ namespace HeartlessDllInjector
             this.dllsListBox.ForeColor = System.Drawing.Color.Black;
             this.dllsListBox.FormattingEnabled = true;
             this.dllsListBox.ItemHeight = 15;
-            this.dllsListBox.Location = new System.Drawing.Point(301, 42);
+            this.dllsListBox.Location = new System.Drawing.Point(302, 42);
             this.dllsListBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dllsListBox.Name = "dllsListBox";
-            this.dllsListBox.Size = new System.Drawing.Size(410, 349);
+            this.dllsListBox.Size = new System.Drawing.Size(409, 349);
             this.dllsListBox.TabIndex = 3;
             // 
             // refreshProcListButton
             // 
             this.refreshProcListButton.BackColor = System.Drawing.SystemColors.Control;
             this.refreshProcListButton.FlatAppearance.BorderColor = System.Drawing.Color.Fuchsia;
+            this.refreshProcListButton.FlatAppearance.BorderSize = 0;
             this.refreshProcListButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.refreshProcListButton.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.refreshProcListButton.ForeColor = System.Drawing.Color.Black;
-            this.refreshProcListButton.Location = new System.Drawing.Point(301, 398);
+            this.refreshProcListButton.Location = new System.Drawing.Point(301, 397);
             this.refreshProcListButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.refreshProcListButton.Name = "refreshProcListButton";
             this.refreshProcListButton.Size = new System.Drawing.Size(130, 38);
@@ -125,6 +128,7 @@ namespace HeartlessDllInjector
             // 
             this.removeDllButton.BackColor = System.Drawing.SystemColors.Control;
             this.removeDllButton.FlatAppearance.BorderColor = System.Drawing.Color.Fuchsia;
+            this.removeDllButton.FlatAppearance.BorderSize = 0;
             this.removeDllButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.removeDllButton.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.removeDllButton.ForeColor = System.Drawing.Color.Black;
@@ -161,18 +165,6 @@ namespace HeartlessDllInjector
             this.label2.TabIndex = 7;
             this.label2.Text = "DLLs";
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.toolsToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(723, 24);
-            this.menuStrip1.TabIndex = 8;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -184,19 +176,19 @@ namespace HeartlessDllInjector
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
             // addDLLToolStripMenuItem
             // 
             this.addDLLToolStripMenuItem.Name = "addDLLToolStripMenuItem";
-            this.addDLLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addDLLToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.addDLLToolStripMenuItem.Text = "Add DLL";
             this.addDLLToolStripMenuItem.Click += new System.EventHandler(this.addDLLToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // toolsToolStripMenuItem
             // 
@@ -210,16 +202,28 @@ namespace HeartlessDllInjector
             // refreshProcessListToolStripMenuItem
             // 
             this.refreshProcessListToolStripMenuItem.Name = "refreshProcessListToolStripMenuItem";
-            this.refreshProcessListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.refreshProcessListToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.refreshProcessListToolStripMenuItem.Text = "Refresh process list";
             this.refreshProcessListToolStripMenuItem.Click += new System.EventHandler(this.refreshProcessListToolStripMenuItem_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.toolsToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(722, 24);
+            this.menuStrip1.TabIndex = 8;
+            this.menuStrip1.Text = "menuStrip1";
             // 
             // InjectorFormWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(723, 448);
+            this.ClientSize = new System.Drawing.Size(722, 451);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.removeDllButton);
@@ -254,12 +258,12 @@ namespace HeartlessDllInjector
         private System.Windows.Forms.Button removeDllButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addDLLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem refreshProcessListToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip menuStrip1;
     }
 }
 

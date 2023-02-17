@@ -297,7 +297,6 @@ namespace HeartlessDllInjector
             RefreshProcList();
         }
 
-
         private bool CheckIfReady()
         {
             attempts++;

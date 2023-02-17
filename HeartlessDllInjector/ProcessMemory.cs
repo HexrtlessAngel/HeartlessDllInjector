@@ -45,14 +45,6 @@ namespace HeartlessDllInjector
 
         public IntPtr Alloc(IntPtr baseAdress, uint size)
         {
-            // return Natives.VirtualAllocEx
-            //     (ProcessHandle,
-            //     baseAdress, 
-            //     size,
-            //     ProcessPrivleges.MEM_COMMIT |
-            //     ProcessPrivleges.MEM_RESERVE,
-            //     MemoryProtections.PAGE_READWRITE);
-
             return Alloc(baseAdress, size, ProcessPrivleges.MEM_COMMIT | ProcessPrivleges.MEM_RESERVE, MemoryProtections.PAGE_EXECUTE_READWRITE);
         }
 
