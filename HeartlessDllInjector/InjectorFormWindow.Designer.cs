@@ -48,6 +48,7 @@ namespace HeartlessDllInjector
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshProcessListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.clickMeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -206,7 +207,7 @@ namespace HeartlessDllInjector
             // refreshProcessListToolStripMenuItem
             // 
             this.refreshProcessListToolStripMenuItem.Name = "refreshProcessListToolStripMenuItem";
-            this.refreshProcessListToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.refreshProcessListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.refreshProcessListToolStripMenuItem.Text = "Refresh process list";
             this.refreshProcessListToolStripMenuItem.Click += new System.EventHandler(this.refreshProcessListToolStripMenuItem_Click);
             // 
@@ -215,12 +216,21 @@ namespace HeartlessDllInjector
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.toolsToolStripMenuItem});
+            this.toolsToolStripMenuItem,
+            this.clickMeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(722, 24);
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // clickMeToolStripMenuItem
+            // 
+            this.clickMeToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.clickMeToolStripMenuItem.Name = "clickMeToolStripMenuItem";
+            this.clickMeToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.clickMeToolStripMenuItem.Text = "Click me!";
+            this.clickMeToolStripMenuItem.Click += new System.EventHandler(this.clickMeToolStripMenuItem_Click);
             // 
             // InjectorFormWindow
             // 
@@ -238,7 +248,7 @@ namespace HeartlessDllInjector
             this.Controls.Add(this.injectDllsButton);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForeColor = System.Drawing.Color.White;
+            this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
@@ -268,6 +278,7 @@ namespace HeartlessDllInjector
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem refreshProcessListToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem clickMeToolStripMenuItem;
     }
 }
 
