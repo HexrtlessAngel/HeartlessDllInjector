@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿// Wolves are just wild dogs...
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
