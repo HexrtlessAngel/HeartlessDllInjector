@@ -29,18 +29,6 @@ namespace HeartlessDllInjector
         {
             InitializeComponent();
 
-            if (!File.Exists($"{Environment.CurrentDirectory}/firstInit.lck"))
-            {
-                MessageBox.Show(
-                    "A useful tip for this dll injector, if the game is 32 bit, use the 32 bit version of this injector to... inject lmao, and same for 64 bit games",
-                    "PLEASE READ THIS!!!!",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                    );
-
-                File.Create($"{Environment.CurrentDirectory}/firstInit.lck");
-            }
-
             InitBlackListedProcNames();
             MaximizeBox = false;
             StartPosition = FormStartPosition.CenterScreen;
