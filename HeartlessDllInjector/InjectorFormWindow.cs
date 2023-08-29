@@ -12,12 +12,14 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace HeartlessDllInjector
 {
     public partial class InjectorFormWindow : Form
     {
         private int refreshButtonClicks, attempts, annoyedLevel;
+        private List<string> blackListedProcNames;
 
         public bool transparentWindow;
         public List<string> dlls;
@@ -26,6 +28,20 @@ namespace HeartlessDllInjector
         public InjectorFormWindow()
         {
             InitializeComponent();
+
+            if (!File.Exists($"{Environment.CurrentDirectory}/firstInit.lck"))
+            {
+                MessageBox.Show(
+                    "A useful tip for this dll injector, if the game is 32 bit, use the 32 bit version of this injector to... inject lmao, and same for 64 bit games",
+                    "PLEASE READ THIS!!!!",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                    );
+
+                File.Create($"{Environment.CurrentDirectory}/firstInit.lck");
+            }
+
+            InitBlackListedProcNames();
             MaximizeBox = false;
             StartPosition = FormStartPosition.CenterScreen;
 
@@ -96,86 +112,38 @@ namespace HeartlessDllInjector
             }
         }
 
+        private void InitBlackListedProcNames()
+        {
+            blackListedProcNames = new List<string>
+            {
+                "HeartlessDllInjector", // This lmao
+                "rundll32",
+                "svchost",
+                "winlogon",
+                "RuntimeBroker",
+                "chrome",
+                "explorer",
+                "OneDrive",
+                "msedgewebview2",
+                "conhost",
+                "dllhost",
+                "Discord",
+                "Code",
+                "Spotify",
+                "csrss",
+                "cmd",
+                "SystemSettings",
+                "qemu-ga",
+                "Taskmgr",
+                "wininit",
+                "Guilded",
+                "brave",
+            };
+        }
+
         private bool IsBlacklistedProess(string name)
         {
-            switch (name)
-            {
-                case "svchost":
-                    return true;
-
-                case "winlogon":
-
-                    return true;
-
-                case "RuntimeBroker":                    
-                    return true;
-
-                case "chrome":
-                    
-                    return true;
-
-                case "explorer":
-                    
-                    return true;
-
-                case "OneDrive":
-                    
-                    return true;
-
-                case "msedgewebview2":
-                    
-                    return true;
-
-                case "conhost":
-                    
-                    return true;
-
-                case "dllhost":
-                    
-                    return true;
-
-                case "Discord":
-                    
-                    return true;
-
-                case "Code":
-                    
-                    return true;
-
-                case "Spotify":
-                    
-                    return true;
-
-                case "csrss":
-                    
-                    return true;
-
-                case "cmd":
-                    
-                    return true;
-
-                case "SystemSettings":
-                    
-                    return true;
-
-                case "qemu-ga":
-                    
-                    return true;
-
-                case "Taskmgr":
-                    
-                    return true;
-
-                case "wininit":
-                    
-                    return true;
-
-                case "Guilded":
-                    
-                    return true;
-            }
-
-            return false;
+            return blackListedProcNames.Contains(name);
         }
 
         private void ExpressAnnoyance()
